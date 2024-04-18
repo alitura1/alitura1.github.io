@@ -57,24 +57,23 @@
     <button onclick="kodKontrol()">Gönder</button>
 
     <script>
-        var girilenKodlar = localStorage.getItem("girilenKodlar") ? JSON.parse(localStorage.getItem("girilenKodlar")) : [];
+        var dogruKodlar = {
+            ışık: false,
+            küre: false,
+            güneş: false
+        };
 
         function kodKontrol() {
-            var dogruKodlar = ["ışık", "küre", "güneş"];
             var girilenKod = document.getElementById("kodInput").value.toLowerCase(); // Girilen kodu küçük harfe çevir
 
-            // Önceki kodları kontrol et
-            if (girilenKodlar.length > 0 && dogruKodlar.indexOf(girilenKod) !== girilenKodlar.length) {
-                alert("Önceki kodları doğru sırayla girmen gerekir, Nisa. Lütfen önceki kodları girerek devam et.");
-                return;
-            }
+            if (dogruKodlar.hasOwnProperty(girilenKod) && !dogruKodlar[girilenKod]) {
+                dogruKodlar[girilenKod] = true;
 
-            // Girilen kodu doğru sırayla ekleyerek kontrol et
-            if (dogruKodlar[girilenKodlar.length] === girilenKod) {
-                girilenKodlar.push(girilenKod);
-                localStorage.setItem("girilenKodlar", JSON.stringify(girilenKodlar)); // Yerel depolamaya kaydet
-
-                if (girilenKodlar.length === dogruKodlar.length) {
+                if (girilenKod === "ışık") {
+                    window.location.href = "https://docs.google.com/document/d/1xSbHm1rXlWzZvgQ0gkjHyLoMHUdxl2uR_gdvUtrXEhQ/edit?usp=drivesdk";
+                } else if (girilenKod === "küre") {
+                    window.location.href = "https://docs.google.com/document/d/18qp81f4wFDSS1MO6mIsPrYp03eWqlUjvjN0_ulG36Cc/edit?usp=drivesdk";
+                } else if (girilenKod === "güneş") {
                     window.location.href = "https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit?usp=drivesdk";
                 }
             } else {
