@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yönlendiriliyorsun Nisa...</title>
-  <script>
-    window.location.href = "https://docs.google.com/document/d/1r1VT5tZ_OnmcDF6HojS_mPvsphsoQKh-NivtCrqv3Z0/edit?usp=sharing"; // Burada yönlendirmek istediğiniz URL'yi belirtin
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages Özel Sayfa</title>
 </head>
 <body>
-  <p>If you are not redirected automatically, follow this <a href="https://docs.google.com/document/d/1r1VT5tZ_OnmcDF6HojS_mPvsphsoQKh-NivtCrqv3Z0/edit?usp=sharing">link</a>.</p>
+    <h1>İlk Bulmacaya Ulaş</h1>
+    <p>Lütfen doğru kodu girin:</p>
+    <input type="text" id="kodInput">
+    <button onclick="kodKontrol()">Gönder</button>
+
+    <script>
+        function kodKontrol() {
+            var dogruKod = "123456";
+            var girilenKod = document.getElementById("kodInput").value;
+
+            if (girilenKod === dogruKod) {
+                window.location.href = "https://docs.google.com/document/d/1r1VT5tZ_OnmcDF6HojS_mPvsphsoQKh-NivtCrqv3Z0/edit?usp=drivesdk";
+            } else if (girilenKod === "abcdef") {
+                window.location.href = "https://www.example.com/site1";
+            } else if (girilenKod === "qwerty") {
+                window.location.href = "https://www.example.com/site2";
+            } else {
+                alert("Yanlış kod girdiniz. Lütfen tekrar deneyin.");
+            }
+        }
+    </script>
 </body>
 </html>
