@@ -62,24 +62,37 @@
             küre: false,
             güneş: false
         };
-
+        var dogruKodlar = ["ışık", "küre", "güneş"];
+        var siradakiKodIndex = 0;
+        
         function kodKontrol() {
             var girilenKod = document.getElementById("kodInput").value.toLowerCase(); // Girilen kodu küçük harfe çevir
-
-            if (dogruKodlar.hasOwnProperty(girilenKod) && !dogruKodlar[girilenKod]) {
-                dogruKodlar[girilenKod] = true;
-
-                if (girilenKod === "ışık") {
-                    window.location.href = "https://docs.google.com/document/d/1xSbHm1rXlWzZvgQ0gkjHyLoMHUdxl2uR_gdvUtrXEhQ/edit?usp=drivesdk";
-                } else if (girilenKod === "küre") {
-                    window.location.href = "https://docs.google.com/document/d/18qp81f4wFDSS1MO6mIsPrYp03eWqlUjvjN0_ulG36Cc/edit?usp=drivesdk";
-                } else if (girilenKod === "güneş") {
-                    window.location.href = "https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit?usp=drivesdk";
+            if (girilenKod === dogruKodlar[siradakiKodIndex]) {
+                siradakiKodIndex++;
+                if (siradakiKodIndex === dogruKodlar.length) {
+                    window.location.href = "https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit";
+                } else {
+                    alert("Tebrikler Nisa! Bir sonraki kodu girebilirsin :)");
+                    
+                    switch (girilenKod) {
+                        case "ışık":
+                            window.open("https://docs.google.com/document/d/1xSbHm1rXlWzZvgQ0gkjHyLoMHUdxl2uR_gdvUtrXEhQ/edit");
+                            break;
+                        case "küre":
+                            window.open("https://docs.google.com/document/d/18qp81f4wFDSS1MO6mIsPrYp03eWqlUjvjN0_ulG36Cc/edit");
+                            break;
+                        case "güneş":
+                             window.open("https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit");
+                             break;
+                        default:
+                            break;
+                        }
+                    }
+                } else {
+                    alert("Yanlış kod girdin, Nisa. Lütfen tekrar dene.");
+                
                 }
-            } else {
-                alert("Yanlış kod girdin, Nisa. Lütfen tekrar dene.");
             }
-        }
     </script>
 </body>
 </html>
