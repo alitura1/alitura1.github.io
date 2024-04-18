@@ -51,9 +51,10 @@
 </head>
 <body>
     <h1>Nisa'nın Doğum Günü Hediyesi 2024</h1>
-    <img src="https://cdn.pixabay.com/photo/2017/09/01/21/53/blue-2705642_960_720.jpg" alt="Doğum Günü Hediyesi" class="gift-img">
+    <img src="https://img.icons8.com/cute-clipart/64/000000/sun.png" alt="Güneş" class="gift-img">
     <p>Lütfen doğru kodu girin:</p>
     <input type="text" id="kodInput">
+    <button onclick="goToFirstPuzzle()">İlk Bulmacaya Ulaş</button>
     <button onclick="kodKontrol()">Gönder</button>
 
     <script>
@@ -65,6 +66,10 @@
         var dogruKodlar = ["ışık", "küre", "güneş"];
         var siradakiKodIndex = 0;
         
+        function goToFirstPuzzle() {
+            window.location.href = "https://docs.google.com/document/d/1r1VT5tZ_OnmcDF6HojS_mPvsphsoQKh-NivtCrqv3Z0/edit?usp=drivesdk";
+        }
+
         function kodKontrol() {
             var girilenKod = document.getElementById("kodInput").value.toLowerCase(); // Girilen kodu küçük harfe çevir
             if (girilenKod === dogruKodlar[siradakiKodIndex]) {
@@ -86,13 +91,12 @@
                              break;
                         default:
                             break;
-                        }
                     }
-                } else {
-                    alert("Yanlış kod girdin, Nisa. Lütfen tekrar dene.");
-                
                 }
+            } else {
+                alert("Yanlış kod girdin, Nisa. Lütfen tekrar dene.");
             }
+        }
     </script>
 </body>
 </html>
