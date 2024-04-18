@@ -45,6 +45,8 @@
     <button onclick="kodKontrol()">Gönder</button>
 
     <script>
+        var girilenKodlar = localStorage.getItem("girilenKodlar") ? JSON.parse(localStorage.getItem("girilenKodlar")) : [];
+
         function goToFirstPuzzle() {
             window.location.href = "https://docs.google.com/document/d/1r1VT5tZ_OnmcDF6HojS_mPvsphsoQKh-NivtCrqv3Z0/edit?usp=drivesdk";
         }
@@ -53,7 +55,17 @@
             var dogruKodlar = ["ışık", "küre", "güneş"];
             var girilenKod = document.getElementById("kodInput").value.toLowerCase(); // Girilen kodu küçük harfe çevir
 
+            // Önceki kodları kontrol et
+            if (girilenKodlar.length > 0 && !girilenKodlar.includes(girilenKod)) {
+                alert("Önceki kodları doğru sırayla girmen gerekir, Nisa. Lütfen önceki kodları girerek devam et.");
+                return;
+            }
+
+            // Girilen kodu doğru sırayla ekleyerek kontrol et
             if (dogruKodlar.includes(girilenKod)) {
+                girilenKodlar.push(girilenKod);
+                localStorage.setItem("girilenKodlar", JSON.stringify(girilenKodlar)); // Yerel depolamaya kaydet
+
                 if (girilenKod === "ışık") {
                     window.location.href = "https://docs.google.com/document/d/1xSbHm1rXlWzZvgQ0gkjHyLoMHUdxl2uR_gdvUtrXEhQ/edit?usp=drivesdk";
                 } else if (girilenKod === "küre") {
