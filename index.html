@@ -48,6 +48,14 @@
             margin-bottom: 20px;
         }
     </style>
+    <!-- Google Analytics İzleme Kodu -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-52EDQBYEDN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-52EDQBYEDN'); <!-- Ölçüm kimliği için Google Analytics'ten alınan değeri buraya girin -->
+    </script>
 </head>
 <body>
     <h1>Nisa'nın Doğum Günü Hediyesi 2024</h1>
@@ -71,14 +79,13 @@
         }
 
         function kodKontrol() {
-            var girilenKod = document.getElementById("kodInput").value.toLowerCase(); // Girilen kodu küçük harfe çevir
+            var girilenKod = document.getElementById("kodInput").value.toLowerCase();
             if (girilenKod === dogruKodlar[siradakiKodIndex]) {
                 siradakiKodIndex++;
                 if (siradakiKodIndex === dogruKodlar.length) {
                     window.location.href = "https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit";
                 } else {
                     alert("Tebrikler Nisa! Bir sonraki kodu girebilirsin :)");
-                    
                     switch (girilenKod) {
                         case "ışık":
                             window.open("https://docs.google.com/document/d/1xSbHm1rXlWzZvgQ0gkjHyLoMHUdxl2uR_gdvUtrXEhQ/edit");
@@ -87,8 +94,8 @@
                             window.open("https://docs.google.com/document/d/18qp81f4wFDSS1MO6mIsPrYp03eWqlUjvjN0_ulG36Cc/edit");
                             break;
                         case "güneş":
-                             window.open("https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit");
-                             break;
+                            window.open("https://docs.google.com/document/d/1IEsxWKTDnMqEG1YgdENJ-6E0gEwib-cFiEO6RArsjrI/edit");
+                            break;
                         default:
                             break;
                     }
